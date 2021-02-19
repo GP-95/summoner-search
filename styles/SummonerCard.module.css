@@ -1,0 +1,31 @@
+.card {
+  background: rgba(32, 32, 170, 0.705);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 3px;
+  padding: 1em 0.3em;
+}
+
+.iconContainer {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid yellow;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summonerName {
+  padding: 0;
+  margin: 0;
+  font-size: 2.3em;
+}
+
+.level {
+  padding: 0;
+  margin: 0;
+}

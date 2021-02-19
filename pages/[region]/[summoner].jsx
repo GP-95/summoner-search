@@ -4,14 +4,15 @@ import styles from '../../styles/summoner.module.css'
 
 import findSummoner from '../../utility/findSummoner'
 
-function summoner({ summoner, region }) {
+import SummonerCard from '../../components/SummonerCard'
+
+function summoner({ summoner, icon, level, region }) {
   return (
     <main className={styles.main}>
       <Head>
-        <title>Summoner Search</title>
+        <title>{summoner} | Found</title>
       </Head>
-      <h1>{summoner}</h1>
-      <p>{region}</p>
+      <SummonerCard summoner={summoner} level={level} icon={icon} />
     </main>
   )
 }
@@ -23,9 +24,15 @@ export async function getServerSideProps(ctx) {
 
   const req = await findSummoner(region, summoner)
 
+  console.log('------------')
   console.log(req)
 
   return {
-    props: { summoner, region },
+    props: {
+      summoner: req.name,
+      icon: req.profileIconId,
+      level: req.summonerLevel,
+      region,
+    },
   }
 }
