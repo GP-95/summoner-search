@@ -18,7 +18,11 @@ function SummonerCard({ summoner, rank }) {
       <p className={styles.level}>Level: {summoner.summonerLevel}</p>
       <section className={styles.rank}>
         {rank.map((rank) => {
-          return <Rank rank={rank} />
+          return (
+            <React.Fragment key={rank.rank}>
+              <Rank rank={rank} />
+            </React.Fragment>
+          )
         })}
       </section>
     </article>
