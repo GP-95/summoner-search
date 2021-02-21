@@ -3,16 +3,17 @@ import Head from 'next/head'
 import styles from '../../styles/summoner.module.css'
 
 import findSummoner from '../../utility/findSummoner'
+import getSummonerRank from '../../utility/getSummonerRank'
 
 import SummonerCard from '../../components/SummonerCard'
 
-function summoner({ summoner, icon, level, region }) {
+function summoner({ summoner, rank }) {
   return (
     <main className={styles.main}>
       <Head>
-        <title>{summoner} | Found</title>
+        <title>{summoner.name} | Found</title>
       </Head>
-      <SummonerCard summoner={summoner} level={level} icon={icon} />
+      <SummonerCard summoner={summoner} rank={rank} />
     </main>
   )
 }
@@ -24,15 +25,12 @@ export async function getServerSideProps(ctx) {
 
   const req = await findSummoner(region, summoner)
 
-  console.log('------------')
-  console.log(req)
+  const rank = await getSummonerRank(region, req.id)
 
   return {
     props: {
-      summoner: req.name,
-      icon: req.profileIconId,
-      level: req.summonerLevel,
-      region,
+      summoner: req,
+      rank: rank,
     },
   }
 }

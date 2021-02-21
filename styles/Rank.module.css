@@ -1,0 +1,31 @@
+.main {
+  background-color: #f4f4f4bd;
+  border-radius: 5px;
+  padding: 0.6em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(12, 59, 187);
+  text-align: center;
+}
+
+.winRateLow {
+  margin-bottom: 0.1em;
+  color: rgba(146, 1, 1, 0.7);
+}
+
+.winRateMedium {
+  margin-bottom: 0.1em;
+  color: rgba(0, 128, 0, 0.7);
+}
+
+.winRateHigh {
+  margin-bottom: 0.1em;
+  color: rgba(0, 102, 255, 0.747);
+}
+
+.unranked {
+  color: rgba(128, 128, 128, 0.5);
+}

@@ -39,6 +39,7 @@ function Navbar() {
           placeholder='Summoner name'
           type='text'
           value={summoner}
+          maxLength={16}
           onChange={(e) => setSummoner(e.target.value)}
         />
         <button type='submit' className={styles.btn}>

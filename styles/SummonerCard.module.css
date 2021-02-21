@@ -7,6 +7,7 @@
 
   border-radius: 3px;
   padding: 1em 0.3em;
+  text-align: center;
 }
 
 .iconContainer {
@@ -28,4 +29,9 @@
 .level {
   padding: 0;
   margin: 0;
+}
+
+.rank {
+  display: flex;
+  flex-direction: row;
 }
