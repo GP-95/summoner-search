@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/SummonerCard.module.css'
 import Image from 'next/image'
 
-import Rank from '../components/Rank'
+import Rank from '../components/Rank.jsx'
 
 function SummonerCard({ summoner, rank }) {
   return (
