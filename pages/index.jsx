@@ -6,7 +6,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Summoner Search</title>
-        <link rel='icon' href='/League-of-Legends.ico' />
+        {/* <link rel='icon' href='/League-of-Legends.ico' /> */}
       </Head>
     </div>
   )
