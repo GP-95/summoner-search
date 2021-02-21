@@ -1,5 +1,5 @@
-async function findSummoner(region, id) {
-  // requests a summoner from Riot API by summoner name
+async function getSummonerRank(region, id) {
+  // get summoner rank from riot by id
   let request = await fetch(
     `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}`,
     {
@@ -15,4 +15,4 @@ async function findSummoner(region, id) {
   return request
 }
 
-export default findSummoner
+export default getSummonerRank

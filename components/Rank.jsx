@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import calcWinRate from '../utility/calcWinRate.js'
+import calcWinRate from '../utility/calcWinrate.js'
 
 import styles from '../styles/Rank.module.css'
 
