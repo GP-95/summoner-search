@@ -8,6 +8,8 @@ import getSummonerRank from '../../utility/getSummonerRank'
 import SummonerCard from '../../components/SummonerCard'
 
 function summoner({ summoner, rank }) {
+  console.log(summoner)
+  console.log(rank)
   return (
     <main className={styles.main}>
       <Head>
@@ -25,7 +27,11 @@ export async function getServerSideProps(ctx) {
 
   const req = await findSummoner(region, summoner)
 
+  console.log(req)
+
   const rank = await getSummonerRank(region, req.id)
+
+  console.log(rank)
 
   return {
     props: {
