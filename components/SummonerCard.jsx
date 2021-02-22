@@ -16,7 +16,7 @@ function SummonerCard({ summoner, rank }) {
       </div>
       <h1 className={styles.summonerName}>{summoner.name}</h1>
       <p className={styles.level}>Level: {summoner.summonerLevel}</p>
-      <section className={styles.rank}>
+      {/* <section className={styles.rank}>
         {rank
           ? rank.map((rank) => {
               return (
@@ -26,7 +26,7 @@ function SummonerCard({ summoner, rank }) {
               )
             })
           : null}
-      </section>
+      </section> */}
     </article>
   )
 }
