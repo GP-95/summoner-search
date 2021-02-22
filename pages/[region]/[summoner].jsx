@@ -27,11 +27,7 @@ export async function getServerSideProps(ctx) {
 
   const req = await findSummoner(region, summoner)
 
-  console.log(req)
-
   const rank = await getSummonerRank(region, req.id)
-
-  console.log(rank)
 
   return {
     props: {

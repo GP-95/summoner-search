@@ -16,17 +16,17 @@ function SummonerCard({ summoner, rank }) {
       </div>
       <h1 className={styles.summonerName}>{summoner.name}</h1>
       <p className={styles.level}>Level: {summoner.summonerLevel}</p>
-      {/* <section className={styles.rank}>
-        {rank
-          ? rank.map((rank) => {
+      <section className={styles.rank}>
+        {rank.length
+          ? rank.map((queue) => {
               return (
-                <React.Fragment key={rank.rank}>
-                  <Rank rank={rank} />
+                <React.Fragment key={queue.leauePoints}>
+                  <Rank rank={queue} />
                 </React.Fragment>
               )
             })
           : null}
-      </section> */}
+      </section>
     </article>
   )
 }
