@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import Rank from '../components/Rank.jsx'
 
-function SummonerCard({ summoner, rank }) {
+function SummonerCard({ summoner, rank, liveGame }) {
   return (
     <article className={styles.card}>
       <div className={styles.iconContainer}>
@@ -20,7 +20,7 @@ function SummonerCard({ summoner, rank }) {
         {rank.length
           ? rank.map((queue) => {
               return (
-                <React.Fragment key={queue.leauePoints}>
+                <React.Fragment key={queue.leaguePoints}>
                   <Rank rank={queue} />
                 </React.Fragment>
               )
