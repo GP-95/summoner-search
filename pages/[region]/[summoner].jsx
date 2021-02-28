@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import styles from '../../styles/summoner.module.css'
 
@@ -6,15 +6,26 @@ import findSummoner from '../../utility/findSummoner'
 import getSummonerRank from '../../utility/getSummonerRank'
 import getLiveGame from '../../utility/getLiveGame'
 
-import SummonerCard from '../../components/SummonerCard'
+import fetchChampions from '../../utility/fetchChampions'
 
-function summoner({ summoner, rank, liveGame }) {
+import SummonerCard from '../../components/SummonerCard'
+import LiveGame from '../../components/LiveGame'
+
+function summoner({ summoner, rank, liveGame, champs }) {
+  const [displayLive, showLiveGame] = useState(false)
+
   return (
     <main className={styles.main}>
       <Head>
         <title>{summoner.name} | Found</title>
       </Head>
-      <SummonerCard summoner={summoner} rank={rank} liveGame={liveGame} />
+      <SummonerCard
+        summoner={summoner}
+        rank={rank}
+        liveGame={liveGame}
+        displayCurrentGame={showLiveGame}
+      />
+      {displayLive ? <LiveGame game={liveGame} champs={champs} /> : null}
     </main>
   )
 }
@@ -30,17 +41,25 @@ export async function getServerSideProps(ctx) {
 
   let liveGame = await getLiveGame(region, req.id) //returns request object
 
-  if (liveGame.status === 200) {
-    liveGame = await liveGame.json()
-  } else {
+  if (liveGame.status != 200) {
     liveGame = false
+    return {
+      props: {
+        summoner: req,
+        rank: rank,
+        liveGame: liveGame,
+      },
+    }
   }
 
+  liveGame = await liveGame.json()
+  const champs = await fetchChampions()
   return {
     props: {
       summoner: req,
       rank: rank,
       liveGame: liveGame,
+      champs: champs.data,
     },
   }
 }

@@ -15,7 +15,7 @@ function Rank({ rank }) {
       />
       <p className={styles.matches}>
         W: <span style={{ color: 'rgba(0, 128, 0, 0.7)' }}>{rank.wins}</span> /
-        <span style={{ color: 'rgba(146, 1, 1, 0.7)' }}>L: {rank.losses}</span>
+        L: <span style={{ color: 'rgba(146, 1, 1, 0.7)' }}>{rank.losses}</span>
       </p>
       <div
         className={

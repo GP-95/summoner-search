@@ -11,7 +11,6 @@ async function getLiveGame(region, id) {
       }
     )
 
-    // request = await request.json()
     return request
 
     // Returns response object

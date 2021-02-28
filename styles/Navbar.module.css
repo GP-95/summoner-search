@@ -27,6 +27,8 @@
 .dropdown {
   padding: 0.5em;
   margin: 0em 0.6em;
+  width: 25%;
+  max-width: 80px;
 
   border-radius: 5px;
 
@@ -45,6 +47,8 @@
 .input {
   padding: 0.5em;
   margin: 0em 0.6em;
+  width: 50%;
+  max-width: 300px;
   text-align: center;
   border: none;
   border-radius: 5px;
@@ -53,10 +57,22 @@
 }
 
 .btn {
-  padding: 0.5em;
+  padding: 0.5em 1em;
+  width: 25%;
+  max-width: 150px;
   margin: 0em 0.6em;
+
+  background-color: rgb(6, 58, 155);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 0.9em;
 
   border: none;
   border-radius: 5px;
   outline: none;
+  transition: 150ms ease-in;
+}
+
+.btn:hover {
+  background: rgb(54, 116, 231);
 }
