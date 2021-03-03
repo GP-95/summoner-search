@@ -5,6 +5,14 @@ import calcWinRate from '../utility/calcWinrate.js'
 import styles from '../styles/Rank.module.css'
 
 function Rank({ rank }) {
+  const highRank = ['CHALLENGER', 'MASTER', 'GRANDMASTER']
+
+  function formatWord(word) {
+    const lowerCase = word.toLowerCase()
+
+    return lowerCase.replace(lowerCase[0], word[0])
+  }
+
   return (
     <div className={styles.main}>
       <h1>{rank.queueType == 'RANKED_SOLO_5x5' ? 'Solo' : 'Flex'} Queue</h1>
@@ -13,6 +21,10 @@ function Rank({ rank }) {
         width={100}
         height={100}
       />
+      <p className={styles.rank}>
+        {formatWord(rank.tier)}{' '}
+        {highRank.includes(rank.tier) ? null : rank.rank}
+      </p>
       <p className={styles.matches}>
         W: <span style={{ color: 'rgba(0, 128, 0, 0.7)' }}>{rank.wins}</span> /
         L: <span style={{ color: 'rgba(146, 1, 1, 0.7)' }}>{rank.losses}</span>

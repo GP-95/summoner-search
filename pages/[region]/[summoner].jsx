@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../../styles/summoner.module.css'
 
@@ -13,6 +13,13 @@ import LiveGame from '../../components/LiveGame'
 
 function summoner({ summoner, rank, liveGame, champs }) {
   const [displayLive, showLiveGame] = useState(false)
+
+  // Page crashes if LiveGame is open and a new summoner, that is not in game, is searched for
+  useEffect(() => {
+    if (!liveGame) {
+      showLiveGame(false)
+    }
+  }, [])
 
   return (
     <main className={styles.main}>
