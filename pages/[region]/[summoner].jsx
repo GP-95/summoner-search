@@ -5,13 +5,15 @@ import styles from '../../styles/summoner.module.css'
 import findSummoner from '../../utility/findSummoner'
 import getSummonerRank from '../../utility/getSummonerRank'
 import getLiveGame from '../../utility/getLiveGame'
+import getSummonerMastery from '../../utility/getSummonerMastery'
 
 import fetchChampions from '../../utility/fetchChampions'
 
 import SummonerCard from '../../components/SummonerCard'
 import LiveGame from '../../components/LiveGame'
+import TopThreeChamps from '../../components/TopThreeChamps'
 
-function summoner({ summoner, rank, liveGame, champs }) {
+function summoner({ summoner, rank, liveGame, champs, mastery }) {
   const [displayLive, showLiveGame] = useState(false)
 
   useEffect(() => {
@@ -34,8 +36,10 @@ function summoner({ summoner, rank, liveGame, champs }) {
           liveGame={liveGame}
           displayCurrentGame={showLiveGame}
           toggleLiveGame={showLiveGame}
+          displayLive={displayLive}
         />
       )}
+      <TopThreeChamps mastery={mastery} champs={champs} />
       {displayLive ? <LiveGame game={liveGame} champs={champs} /> : null}
     </main>
   )
@@ -48,15 +52,17 @@ export async function getServerSideProps(ctx) {
 
   const req = await findSummoner(region, summoner)
 
-  // if (req.status.status_code === 404) {
-  //   return {
-  //     props: {
-  //       summoner: false,
-  //     },
-  //   }
-  // }
+  if (req.status) {
+    return {
+      props: {
+        summoner: false,
+      },
+    }
+  }
 
   const rank = await getSummonerRank(region, req.id)
+
+  const mastery = await getSummonerMastery(region, req.id)
 
   let liveGame = await getLiveGame(region, req.id) //returns request object
 
@@ -78,6 +84,7 @@ export async function getServerSideProps(ctx) {
       rank: rank,
       liveGame: liveGame,
       champs: champs.data,
+      mastery: mastery.splice(0, 3),
     },
   }
 }

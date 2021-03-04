@@ -4,7 +4,13 @@ import Image from 'next/image'
 
 import Rank from '../components/Rank.jsx'
 
-function SummonerCard({ summoner, rank, liveGame, displayCurrentGame }) {
+function SummonerCard({
+  summoner,
+  rank,
+  liveGame,
+  displayCurrentGame,
+  displayLive,
+}) {
   return (
     <article className={styles.card}>
       <div className={styles.iconContainer}>
@@ -30,7 +36,7 @@ function SummonerCard({ summoner, rank, liveGame, displayCurrentGame }) {
       <button
         type='button'
         className={styles.btn}
-        onClick={() => displayCurrentGame(true)}
+        onClick={() => displayCurrentGame(!displayLive)}
         disabled={!liveGame}
       >
         {liveGame ? 'Get current game' : 'Not in game'}

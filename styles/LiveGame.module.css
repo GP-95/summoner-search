@@ -163,6 +163,12 @@
   margin-left: -7em;
 }
 
+@media screen and (max-width: 450px) {
+  .champIconContainer {
+    height: 90%;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .currentGameContainer {
     flex-direction: column;
