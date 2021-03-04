@@ -33,6 +33,15 @@ function Navbar() {
           <option value='eun1' className={styles.option}>
             EUNE
           </option>
+          <option value='br1' className={styles.option}>
+            BR
+          </option>
+          <option value='kr' className={styles.option}>
+            KR
+          </option>
+          <option value='jp1' className={styles.option}>
+            JP
+          </option>
         </select>
         <input
           className={styles.input}

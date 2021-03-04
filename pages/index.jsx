@@ -9,6 +9,7 @@ export default function Home({ leaderboard }) {
       <Head>
         <title>Summoner Search</title>
       </Head>
+      <h1 className={styles.heading}>EUW Challengers</h1>
       <main className={styles.container}>
         {leaderboard.entries.map((summoner, index) => {
           return (

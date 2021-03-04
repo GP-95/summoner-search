@@ -25,13 +25,17 @@ function summoner({ summoner, rank, liveGame, champs }) {
       <Head>
         <title>{summoner.name} | Found</title>
       </Head>
-      <SummonerCard
-        summoner={summoner}
-        rank={rank}
-        liveGame={liveGame}
-        displayCurrentGame={showLiveGame}
-        toggleLiveGame={showLiveGame}
-      />
+      {!summoner ? (
+        <h1>{'Summoner not found :('}</h1>
+      ) : (
+        <SummonerCard
+          summoner={summoner}
+          rank={rank}
+          liveGame={liveGame}
+          displayCurrentGame={showLiveGame}
+          toggleLiveGame={showLiveGame}
+        />
+      )}
       {displayLive ? <LiveGame game={liveGame} champs={champs} /> : null}
     </main>
   )
@@ -43,6 +47,14 @@ export async function getServerSideProps(ctx) {
   const { region, summoner } = ctx.query
 
   const req = await findSummoner(region, summoner)
+
+  if (req.status.status_code === 404) {
+    return {
+      props: {
+        summoner: false,
+      },
+    }
+  }
 
   const rank = await getSummonerRank(region, req.id)
 
