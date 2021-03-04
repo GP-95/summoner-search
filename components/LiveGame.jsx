@@ -4,6 +4,10 @@ import styles from '../styles/LiveGame.module.css'
 import findChampionById from '../utility/findChampionById'
 
 function LiveGame({ game, champs }) {
+  if (!game) {
+    return null
+  }
+
   return (
     <article className={styles.currentGameContainer}>
       <div className={styles.blueTeam100}>

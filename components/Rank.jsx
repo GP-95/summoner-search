@@ -7,6 +7,8 @@ import styles from '../styles/Rank.module.css'
 function Rank({ rank }) {
   const highRank = ['CHALLENGER', 'MASTER', 'GRANDMASTER']
 
+  const winrate = calcWinRate(rank.wins, rank.losses)
+
   function formatWord(word) {
     const lowerCase = word.toLowerCase()
 
@@ -31,14 +33,14 @@ function Rank({ rank }) {
       </p>
       <div
         className={
-          calcWinRate(rank.wins, rank.losses) > 54
+          winrate > 54
             ? styles.winRateHigh
-            : calcWinRate(rank.wins, rank.losses) >= 50
+            : winrate >= 50
             ? styles.winRateMedium
             : styles.winRateLow
         }
       >
-        Winrate: {calcWinRate(rank.wins, rank.losses)}%
+        Winrate: {winrate}%
       </div>
     </div>
   )

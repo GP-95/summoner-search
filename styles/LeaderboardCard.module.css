@@ -1,0 +1,98 @@
+.card {
+  min-width: 320px;
+  width: 95%;
+  max-width: 500px;
+
+  margin: 1em 0.5em;
+  padding: 1em;
+
+  border: 2px solid rgba(17, 17, 199, 0.521);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 15px 2px #000000ab;
+  box-shadow: 0px 3px 15px 2px #000000ab;
+
+  transition: 5s ease-in;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  padding: 0.1em 0em;
+  margin: 0;
+  border-bottom: rgba(46, 166, 170, 0.596) 1px solid;
+  display: inline;
+}
+
+.standing {
+  padding: 0;
+  margin: 0.3em 0em;
+  font-size: 0.8em;
+  user-select: none;
+}
+
+.rank {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+.winbar::-moz-progress-bar {
+  appearance: none;
+  border-radius: 5px;
+  width: 80%;
+  height: 10px;
+  background: rgb(21, 130, 255);
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.winbar::-webkit-progress-bar {
+  appearance: none;
+  border-radius: 5px;
+  width: 80%;
+  height: 10px;
+  background: rgb(21, 130, 255);
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.winbar {
+  appearance: none;
+  border-radius: 5px;
+  width: 80%;
+  height: 10px;
+  background: rgb(21, 130, 255);
+  background-color: rgb(212, 34, 34);
+  /* background: red; */
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.winRateLow {
+  margin-bottom: 0.1em;
+  color: rgba(146, 1, 1, 0.7);
+  margin: 0;
+  margin-top: 0.3em;
+}
+
+.winRateMedium {
+  margin-bottom: 0.1em;
+  color: rgba(0, 128, 0, 0.7);
+  margin: 0;
+  margin-top: 0.3em;
+}
+
+.winRateHigh {
+  margin-bottom: 0.1em;
+  color: rgba(0, 102, 255, 0.747);
+  margin: 0;
+  margin-top: 0.3em;
+}

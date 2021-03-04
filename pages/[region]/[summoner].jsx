@@ -14,12 +14,11 @@ import LiveGame from '../../components/LiveGame'
 function summoner({ summoner, rank, liveGame, champs }) {
   const [displayLive, showLiveGame] = useState(false)
 
-  // Page crashes if LiveGame is open and a new summoner, that is not in game, is searched for
   useEffect(() => {
     if (!liveGame) {
       showLiveGame(false)
     }
-  }, [])
+  }, [liveGame])
 
   return (
     <main className={styles.main}>
@@ -31,6 +30,7 @@ function summoner({ summoner, rank, liveGame, champs }) {
         rank={rank}
         liveGame={liveGame}
         displayCurrentGame={showLiveGame}
+        toggleLiveGame={showLiveGame}
       />
       {displayLive ? <LiveGame game={liveGame} champs={champs} /> : null}
     </main>
@@ -49,12 +49,11 @@ export async function getServerSideProps(ctx) {
   let liveGame = await getLiveGame(region, req.id) //returns request object
 
   if (liveGame.status != 200) {
-    liveGame = false
     return {
       props: {
         summoner: req,
         rank: rank,
-        liveGame: liveGame,
+        liveGame: false,
       },
     }
   }
