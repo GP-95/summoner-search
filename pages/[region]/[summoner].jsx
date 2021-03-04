@@ -48,13 +48,13 @@ export async function getServerSideProps(ctx) {
 
   const req = await findSummoner(region, summoner)
 
-  if (req.status.status_code === 404) {
-    return {
-      props: {
-        summoner: false,
-      },
-    }
-  }
+  // if (req.status.status_code === 404) {
+  //   return {
+  //     props: {
+  //       summoner: false,
+  //     },
+  //   }
+  // }
 
   const rank = await getSummonerRank(region, req.id)
 
