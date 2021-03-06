@@ -66,18 +66,21 @@ export async function getServerSideProps(ctx) {
 
   let liveGame = await getLiveGame(region, req.id) //returns request object
 
+  const champs = await fetchChampions()
+
   if (liveGame.status != 200) {
     return {
       props: {
         summoner: req,
         rank: rank,
         liveGame: false,
+        champs: champs.data,
+        mastery: mastery.splice(0, 3),
       },
     }
   }
 
   liveGame = await liveGame.json()
-  const champs = await fetchChampions()
   return {
     props: {
       summoner: req,

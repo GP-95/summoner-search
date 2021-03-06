@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+  margin: 1.5em 0em;
+  width: 80%;
+  max-width: 480px;
+  z-index: -1;
+  user-select: none;
+}
+
+.champ {
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  margin: 1em;
+}
+
+.icon {
+  border-radius: 50%;
+  border: rgb(43, 21, 122) 2px solid;
+  height: auto;
+  width: 60%;
+}
+
+.name {
+  padding: 0;
+}
