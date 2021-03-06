@@ -7,9 +7,8 @@ function TopThreeChamps({ champs, mastery }) {
   const [topThree, setTopThree] = useState([])
 
   useEffect(async () => {
-    const arr = []
+    let arr = []
     mastery.forEach((mast) => {
-      console.log(mast)
       let info = findChampionById(mast.championId, champs)
       arr.push({
         image: info.image.full,
@@ -21,12 +20,17 @@ function TopThreeChamps({ champs, mastery }) {
       })
       return
     })
-    setTopThree(arr)
-  }, [])
+    const orderdArr = []
+    arr = arr.sort((a, b) => a - b)
+    orderdArr.push(arr[1])
+    orderdArr.push(arr[2])
+    orderdArr.push(arr[0])
+    setTopThree(orderdArr)
+  }, [mastery])
 
   return (
     <section
-      className={`${styles.container} animate__animated animate__fadeInDown`}
+      className={`${styles.container} animate__animated animate__fadeInDown animate__delay-1s`}
     >
       {topThree
         ? topThree.map((champ) => (

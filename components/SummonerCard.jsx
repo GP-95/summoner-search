@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/SummonerCard.module.css'
 import Image from 'next/image'
+import 'animate.css'
 
 import Rank from '../components/Rank.jsx'
 
@@ -12,7 +13,9 @@ function SummonerCard({
   displayLive,
 }) {
   return (
-    <article className={styles.card}>
+    <article
+      className={`${styles.card} animate__animated animate__slideInDown`}
+    >
       <div className={styles.iconContainer}>
         <Image
           height={130}

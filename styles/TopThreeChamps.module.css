@@ -16,17 +16,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid white;
   margin: 1em;
 }
 
 .icon {
   border-radius: 50%;
-  border: rgb(43, 21, 122) 2px solid;
+  border: rgb(136, 76, 20) 2px solid;
   height: auto;
-  width: 60%;
+  width: 55px;
+}
+
+.champ:first-child > .icon {
+  border: rgb(156, 156, 156) 2px solid;
+}
+
+.champ:nth-child(2) > .icon {
+  border: rgb(182, 194, 22) 2px solid;
 }
 
 .name {
   padding: 0;
+  font-size: 1em;
 }

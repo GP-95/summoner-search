@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --animate-delay: 0.2s;
+}
