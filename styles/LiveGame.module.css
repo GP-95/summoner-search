@@ -30,7 +30,7 @@
   display: none;
 }
 
-.blueTeam100 {
+.team {
   width: 50%;
   height: 100%;
   background-color: rgba(60, 193, 255, 0.582);
@@ -40,14 +40,8 @@
   justify-content: space-evenly;
 }
 
-.redTeam200 {
-  width: 50%;
-  height: 100%;
+.team[red] {
   background-color: rgba(252, 59, 59, 0.589);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .summonerContainer {
@@ -138,7 +132,7 @@
 }
 
 .champIcon {
-  height: 100%;
+  height: 35px;
   width: auto;
   border: 2px solid rgb(11, 255, 202);
   border-radius: 2px;
@@ -154,13 +148,14 @@
   z-index: 1000;
   margin-top: -2.5em;
   margin-left: 3em;
-  width: 100px;
+  width: 110px;
   height: 40px;
   text-align: center;
+  font-size: 0.9em;
 }
 
 .tooltip[blue] {
-  margin-left: -7em;
+  margin-left: -8em;
 }
 
 @media screen and (max-width: 450px) {
@@ -175,12 +170,12 @@
     max-height: 100%;
   }
 
-  .blueTeam100 {
+  .team {
     width: 100%;
     margin-bottom: 0.1em;
   }
 
-  .redTeam200 {
+  .team[red] {
     width: 100%;
   }
 

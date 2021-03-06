@@ -6,7 +6,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta lang='en' />
         <meta
           name='description'
           content='Look up League of Legends summoners'

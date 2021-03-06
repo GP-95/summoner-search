@@ -10,7 +10,7 @@ function LiveGame({ game, champs }) {
 
   return (
     <article className={styles.currentGameContainer}>
-      <div className={styles.blueTeam100}>
+      <div className={styles.team} blue='team'>
         {game.participants
           .filter((player) => player.teamId === 100)
           .map((player) => {
@@ -46,7 +46,8 @@ function LiveGame({ game, champs }) {
             )
           })}
       </div>
-      <div className={styles.redTeam200}>
+      {/* styles.redTeam200 */}
+      <div className={styles.team} red='team'>
         {game.participants
           .filter((player) => player.teamId === 200)
           .map((player) => {

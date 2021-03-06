@@ -41,7 +41,7 @@ export async function getStaticProps() {
   })
 
   // Gets the 100 players wit hhighest LP
-  sortedLeaders = sortedLeaders.splice(200, 301)
+  sortedLeaders = sortedLeaders.splice(290, 301)
 
   // Reverses list to be highest LP to lowest
   leaderboard.entries = sortedLeaders.reverse()
