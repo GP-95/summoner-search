@@ -1,10 +1,11 @@
 import styles from '../styles/LeaderboardCard.module.css'
 import calcWinrate from '../utility/calcWinrate.js'
+import 'animate.css'
 
 function LeaderboardCard({ summoner, index }) {
   const winrate = calcWinrate(summoner.wins, summoner.losses)
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} animate__animated animate__fadeInUp`}>
       <h1 className={styles.name}>{summoner.summonerName}</h1>
       <p className={styles.standing}>Rank {index + 1}</p>
       <p className={styles.rank}>{summoner.leaguePoints} LP</p>

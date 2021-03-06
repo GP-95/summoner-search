@@ -36,7 +36,7 @@ function TopThreeChamps({ champs, mastery }) {
         ? topThree.map((champ) => (
             <article className={styles.champ} key={champ.key}>
               <img
-                src={`http://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${champ.image}`}
+                src={`https://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${champ.image}`}
                 alt={`${champ.name} icon`}
                 className={styles.icon}
               />

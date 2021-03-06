@@ -24,7 +24,7 @@ function LiveGame({ game, champs }) {
                   <div className={styles.iconContainer}>
                     <img
                       className={styles.summonerIcon}
-                      src={`http://ddragon.leagueoflegends.com/cdn/11.2.1/img/profileicon/${player.profileIconId}.png`}
+                      src={`https://ddragon.leagueoflegends.com/cdn/11.2.1/img/profileicon/${player.profileIconId}.png`}
                       alt='Icon'
                     />
                   </div>
@@ -35,7 +35,7 @@ function LiveGame({ game, champs }) {
                 <div className={styles.champIconContainer}>
                   <img
                     className={styles.champIcon}
-                    src={`http://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${champion.image.full}`}
+                    src={`https://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${champion.image.full}`}
                     alt={champion.name}
                   />
                   <span className={styles.tooltip} blue='team'>

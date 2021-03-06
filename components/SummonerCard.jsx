@@ -20,7 +20,7 @@ function SummonerCard({
         <Image
           height={130}
           width={130}
-          src={`http://ddragon.leagueoflegends.com/cdn/11.4.1/img/profileicon/${summoner.profileIconId}.png`}
+          src={`https://ddragon.leagueoflegends.com/cdn/11.4.1/img/profileicon/${summoner.profileIconId}.png`}
         />
       </div>
       <h1 className={styles.summonerName}>{summoner.name}</h1>
