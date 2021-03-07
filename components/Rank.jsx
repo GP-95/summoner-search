@@ -22,6 +22,7 @@ function Rank({ rank }) {
         src={`/assets/rankEmblems/${rank.tier}.png`}
         width={100}
         height={100}
+        alt={`${rank.tier.toLowerCase()} rank icon`}
       />
       <p className={styles.rank}>
         {formatWord(rank.tier)}{' '}

@@ -20,20 +20,18 @@ function TopThreeChamps({ champs, mastery }) {
       })
       return
     })
-    const orderdArr = []
     arr = arr.sort((a, b) => a - b)
-    orderdArr.push(arr[1])
-    orderdArr.push(arr[2])
-    orderdArr.push(arr[0])
-    setTopThree(orderdArr)
+    setTopThree(arr)
   }, [mastery])
 
   return (
     <section
       className={`${styles.container} animate__animated animate__fadeInDown animate__delay-1s`}
     >
-      {topThree
-        ? topThree.map((champ) => (
+      <h2 className={styles.title}>Champion mastery</h2>
+      {topThree ? (
+        <div className={styles.champContainer}>
+          {topThree.map((champ) => (
             <article className={styles.champ} key={champ.key}>
               <img
                 src={`https://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/${champ.image}`}
@@ -45,8 +43,11 @@ function TopThreeChamps({ champs, mastery }) {
                 {champ.points.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </p>
             </article>
-          ))
-        : null}
+          ))}
+        </div>
+      ) : (
+        <p>No mastery</p>
+      )}
     </section>
   )
 }

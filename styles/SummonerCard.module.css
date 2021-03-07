@@ -1,6 +1,6 @@
 .card {
-  /* background: rgba(32, 32, 170, 0.705); */
   background: #f4f4f4;
+  min-width: 310px;
   width: 85%;
   max-width: 500px;
   display: flex;
@@ -51,6 +51,7 @@
   width: 92%;
   max-width: 280px;
   padding: 0.6em 1em;
+  margin: 0.3em 0em;
 
   border-radius: 5px;
   border: 2px solid rgb(0, 36, 112);
@@ -62,6 +63,11 @@
   transition: 250ms ease-out;
 }
 
+.clash {
+  background-color: rgb(17, 105, 128);
+  border-color: rgb(28, 130, 148);
+}
+
 .btn:disabled {
   background: rgba(128, 128, 128, 0.651);
   color: black;
@@ -70,4 +76,8 @@
 
 .btn:hover:enabled {
   background: rgba(0, 60, 255, 0.959);
+}
+
+.clash:hover:enabled {
+  background-color: rgb(24, 139, 168);
 }
