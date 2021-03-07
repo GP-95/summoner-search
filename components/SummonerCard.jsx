@@ -20,6 +20,7 @@ function SummonerCard({
   liveGame,
   displayCurrentGame,
   displayLive,
+  // clash,
 }) {
   const [clash, setClash] = useState({})
 
@@ -63,7 +64,18 @@ function SummonerCard({
       >
         Clash Info
       </button>
-      {clash.name ? <h1>Team: {clash.name}</h1> : null}
+      {clash.name ? (
+        <section>
+          <h3>{clash.name}</h3>
+          {clash.players.map((player) => (
+            <div key={player.id}>
+              <p style={player.captain ? { background: 'gold' } : null}>
+                {player.name} - {player.position}
+              </p>
+            </div>
+          ))}
+        </section>
+      ) : null}
     </article>
   )
 }

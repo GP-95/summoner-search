@@ -15,6 +15,7 @@ import TopThreeChamps from '../../components/TopThreeChamps'
 
 function summoner({ summoner, rank, liveGame, champs, mastery }) {
   const [displayLive, showLiveGame] = useState(false)
+  // const [displayClash, showClash] = useState(false)
 
   useEffect(() => {
     if (!liveGame) {
@@ -88,6 +89,7 @@ export async function getServerSideProps(ctx) {
       liveGame: liveGame,
       champs: champs.data,
       mastery: mastery.splice(0, 3),
+      clash: { ...clashTeam, players: teamMembers },
     },
   }
 }
