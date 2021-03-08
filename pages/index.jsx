@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import styles from '../styles/home.module.css'
 
 import LeaderboardCard from '../components/LeaderboardCard'
@@ -9,14 +10,18 @@ export default function Home({ leaderboard }) {
       <Head>
         <title>Summoner Search</title>
       </Head>
-      <h1 className={styles.heading}>EUW Challengers</h1>
+      <Image
+        src='/assets/rankEmblems/CHALLENGER.png'
+        width={100}
+        height={100}
+      />
+      <h1 className={styles.heading}>Top 10 EUW</h1>
       <main className={styles.container}>
         {leaderboard.entries.map((summoner, index) => {
           return (
             <LeaderboardCard summoner={summoner} index={index} key={index} />
           )
         })}
-        {/* <LeaderboardCard summoner={leaderboard.entries[0]} /> */}
       </main>
     </div>
   )

@@ -5,25 +5,16 @@ import 'animate.css'
 
 import Rank from '../components/Rank.jsx'
 
-async function getClashInfo(id, setState) {
-  let clashInfo = await fetch(`http://localhost:3000/api/clash/${id}`)
-
-  clashInfo = await clashInfo.json()
-
-  console.log(clashInfo)
-  setState(clashInfo.data)
-}
-
 function SummonerCard({
   summoner,
   rank,
   liveGame,
-  displayCurrentGame,
+  toggleLiveGame,
   displayLive,
-  // clash,
+  clash,
+  toggleClash,
+  displayClash,
 }) {
-  const [clash, setClash] = useState({})
-
   return (
     <article
       className={`${styles.card} animate__animated animate__slideInDown`}
@@ -52,7 +43,7 @@ function SummonerCard({
       <button
         type='button'
         className={styles.btn}
-        onClick={() => displayCurrentGame(!displayLive)}
+        onClick={() => toggleLiveGame(!displayLive)}
         disabled={!liveGame}
       >
         {liveGame ? 'Get current game' : 'Not in game'}
@@ -60,22 +51,11 @@ function SummonerCard({
       <button
         type='button'
         className={`${styles.btn} ${styles.clash}`}
-        onClick={() => getClashInfo(summoner.id, setClash)}
+        onClick={() => toggleClash(!displayClash)}
+        disabled={!clash}
       >
-        Clash Info
+        {clash ? 'Get Clash info' : 'Not in a Clash team'}
       </button>
-      {clash.name ? (
-        <section>
-          <h3>{clash.name}</h3>
-          {clash.players.map((player) => (
-            <div key={player.id}>
-              <p style={player.captain ? { background: 'gold' } : null}>
-                {player.name} - {player.position}
-              </p>
-            </div>
-          ))}
-        </section>
-      ) : null}
     </article>
   )
 }

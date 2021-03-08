@@ -39,7 +39,7 @@ function TopThreeChamps({ champs, mastery }) {
                 className={styles.icon}
               />
               <h1 className={styles.name}>{champ.name}</h1>
-              <p>
+              <p className={styles.points}>
                 {champ.points.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </p>
             </article>

@@ -15,7 +15,7 @@
 .champContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .title {
@@ -28,27 +28,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.5em 1em;
+  margin: 0.5em 0.7em;
 }
 
 .icon {
   border-radius: 50%;
-  border: rgb(136, 76, 20) 2px solid;
+  border: rgb(20, 51, 136) 2px solid;
   height: auto;
   width: 55px;
-}
-
-.champ:first-child > .icon {
-  border: rgb(156, 156, 156) 2px solid;
-  border: rgb(182, 194, 22) 2px solid;
-}
-
-.champ:nth-child(2) > .icon {
-  border: rgb(156, 156, 156) 2px solid;
+  margin-bottom: 0.2em;
 }
 
 .name {
   padding: 0;
   font-size: 1em;
   margin: 0em;
+}
+
+.points {
+  margin: 0.2em;
 }

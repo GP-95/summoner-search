@@ -11,9 +11,13 @@ async function getLiveGame(region, id) {
       }
     )
 
-    return request
+    if (request.status != 200) {
+      return false
+    }
 
-    // Returns response object
+    request = await request.json()
+
+    return request
   } catch (err) {
     console.log('error: ' + err)
     return err
