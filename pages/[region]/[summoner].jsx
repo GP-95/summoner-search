@@ -24,8 +24,9 @@ function summoner({ summoner, rank, liveGame, champs, mastery, clash }) {
   useEffect(() => {
     if (!liveGame) {
       showLiveGame(false)
+      setClash(false)
     }
-  }, [liveGame])
+  }, [liveGame, clash])
 
   return (
     <main className={styles.main}>
@@ -86,6 +87,7 @@ export async function getServerSideProps(ctx) {
 
   // Getting Clash info
   const clash = await getClashInfo(region, req.id)
+  console.log(clash)
 
   return {
     props: {

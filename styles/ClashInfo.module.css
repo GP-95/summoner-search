@@ -9,7 +9,7 @@
   margin: 1em 0em;
   width: 80%;
   max-width: 480px;
-  z-index: -1;
+  z-index: 1;
   padding: 0.5em 0em;
 }
 
@@ -29,13 +29,24 @@
 }
 
 .playerContainer {
-  /* margin: 0.1em; */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  border-radius: 2px;
   border-bottom: 1px solid rgba(137, 43, 226, 0.322);
+}
+
+.playerContainer:hover {
+  background: linear-gradient(
+    to right,
+    rgb(10, 56, 126),
+    rgba(0, 92, 128, 0.342),
+    rgba(0, 92, 128, 0.103),
+    rgba(0, 92, 128, 0)
+  );
+  color: #f4f4f4;
 }
 
 .playerContainer:last-child {
@@ -45,6 +56,7 @@
 .playerName {
   margin: 0.5em;
   position: relative;
+  cursor: pointer;
 }
 
 .playerName[captain]::after {
@@ -61,4 +73,5 @@
 
 .role {
   margin: 0.5em;
+  color: black;
 }

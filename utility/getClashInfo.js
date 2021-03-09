@@ -16,7 +16,7 @@ async function getClashInfo(region, id) {
     return {
       //Remove placeholder data
       name: 'team 1',
-      region: 'euw',
+      region: 'euw1',
       players: [
         { id: 1, captain: true, name: 'Support Player', position: 'utility' },
         { id: 2, captain: false, name: 'The Midlaner', position: 'mid' },

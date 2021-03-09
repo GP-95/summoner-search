@@ -8,7 +8,7 @@
   margin: 1.5em 0em;
   width: 80%;
   max-width: 480px;
-  z-index: -1;
+  z-index: 1;
   user-select: none;
 }
 

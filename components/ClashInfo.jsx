@@ -16,7 +16,12 @@ function ClashInfo({ clash, display }) {
           .filter((player) => player.position === 'top')
           .map((player) => (
             <div key={player.id} className={styles.playerContainer}>
-              <Link href={`/${region}/${player.name}`}>
+              <Link
+                href={
+                  process.env.NEXT_PUBLIC_URL +
+                  `/${clash.region}/${player.name}`
+                }
+              >
                 <p
                   className={styles.playerName}
                   captain={player.captain ? 'true' : undefined}
@@ -39,7 +44,12 @@ function ClashInfo({ clash, display }) {
           .filter((player) => player.position === 'jungler')
           .map((player) => (
             <div key={player.id} className={styles.playerContainer}>
-              <Link href={`/${region}/${player.name}`}>
+              <Link
+                href={
+                  process.env.NEXT_PUBLIC_URL +
+                  `/${clash.region}/${player.name}`
+                }
+              >
                 <p
                   className={styles.playerName}
                   captain={player.captain ? 'true' : undefined}
@@ -62,7 +72,12 @@ function ClashInfo({ clash, display }) {
           .filter((player) => player.position === 'mid')
           .map((player) => (
             <div key={player.id} className={styles.playerContainer}>
-              <Link href={`/${region}/${player.name}`}>
+              <Link
+                href={
+                  process.env.NEXT_PUBLIC_URL +
+                  `/${clash.region}/${player.name}`
+                }
+              >
                 <p
                   className={styles.playerName}
                   captain={player.captain ? 'true' : undefined}
@@ -85,7 +100,12 @@ function ClashInfo({ clash, display }) {
           .filter((player) => player.position === 'bottom')
           .map((player) => (
             <div key={player.id} className={styles.playerContainer}>
-              <Link href={`/${region}/${player.name}`}>
+              <Link
+                href={
+                  process.env.NEXT_PUBLIC_URL +
+                  `/${clash.region}/${player.name}`
+                }
+              >
                 <p
                   className={styles.playerName}
                   captain={player.captain ? 'true' : undefined}
@@ -108,7 +128,12 @@ function ClashInfo({ clash, display }) {
           .filter((player) => player.position === 'utility')
           .map((player) => (
             <div key={player.id} className={styles.playerContainer}>
-              <Link href={`/${region}/${player.name}`}>
+              <Link
+                href={
+                  process.env.NEXT_PUBLIC_URL +
+                  `/${clash.region}/${player.name}`
+                }
+              >
                 <p
                   className={styles.playerName}
                   captain={player.captain ? 'true' : undefined}
