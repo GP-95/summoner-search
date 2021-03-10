@@ -10,6 +10,7 @@ import getClashInfo from '../../utility/getClashInfo'
 
 import fetchChampions from '../../utility/fetchChampions'
 
+import Navbar from '../../components/Navbar'
 import SummonerCard from '../../components/SummonerCard'
 import LiveGame from '../../components/LiveGame'
 import TopThreeChamps from '../../components/TopThreeChamps'
@@ -87,7 +88,6 @@ export async function getServerSideProps(ctx) {
 
   // Getting Clash info
   const clash = await getClashInfo(region, req.id)
-  console.log(clash)
 
   return {
     props: {

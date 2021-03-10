@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import '../styles/globals.css'
 import Navbar from '../components/Navbar.jsx'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
+  const [loading, setLoading] = useState(false)
   return (
     <>
+      <Navbar setLoading={setLoading} />
       <Head>
         <meta
           name='description'
@@ -15,8 +18,8 @@ function MyApp({ Component, pageProps }) {
           content='league of legends, lol, summoner, stats, champions'
         />
       </Head>
-      <Navbar />
-      <Component {...pageProps} />
+      {/* <Navbar /> */}
+      <Component {...pageProps} loading={loading} setLoading={setLoading} />
     </>
   )
 }

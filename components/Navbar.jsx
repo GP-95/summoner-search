@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import styles from '../styles/Navbar.module.css'
 
-function Navbar() {
+function Navbar({ setLoading }) {
   const [region, setRegion] = useState('euw1')
   const [summoner, setSummoner] = useState('')
 
@@ -11,6 +11,7 @@ function Navbar() {
 
   function searchForSummoner(e) {
     e.preventDefault()
+    setLoading(true)
     router.push(`/${region}/${summoner}`)
   }
 
