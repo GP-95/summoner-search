@@ -7,6 +7,7 @@ function TopThreeChamps({ champs, mastery }) {
   const [topThree, setTopThree] = useState([])
 
   useEffect(async () => {
+    //why is this async?
     let arr = []
     mastery.forEach((mast) => {
       let info = findChampionById(mast.championId, champs)

@@ -16,6 +16,7 @@ import SummonerCard from '../../components/SummonerCard'
 import LiveGame from '../../components/LiveGame'
 import TopThreeChamps from '../../components/TopThreeChamps'
 import ClashInfo from '../../components/ClashInfo'
+import Game from '../../components/Game'
 
 function summoner({
   summoner,
@@ -62,6 +63,17 @@ function summoner({
         <ClashInfo clash={clash} display={displayClash} />
       ) : null}
       {displayLive ? <LiveGame game={liveGame} champs={champs} /> : null}
+      {!matches
+        ? null
+        : matches.map((match, index) => (
+            <Game
+              match={match}
+              summoner={summoner}
+              champs={champs}
+              key={index}
+              rank={rank}
+            />
+          ))}
     </main>
   )
 }
