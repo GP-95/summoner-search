@@ -7,6 +7,7 @@ import getSummonerRank from '../../utility/getSummonerRank'
 import getLiveGame from '../../utility/getLiveGame'
 import getSummonerMastery from '../../utility/getSummonerMastery'
 import getClashInfo from '../../utility/getClashInfo'
+import getSummonerMatches from '../../utility/getSummonerMatches'
 
 import fetchChampions from '../../utility/fetchChampions'
 
@@ -16,7 +17,15 @@ import LiveGame from '../../components/LiveGame'
 import TopThreeChamps from '../../components/TopThreeChamps'
 import ClashInfo from '../../components/ClashInfo'
 
-function summoner({ summoner, rank, liveGame, champs, mastery, clash }) {
+function summoner({
+  summoner,
+  rank,
+  liveGame,
+  champs,
+  mastery,
+  clash,
+  matches,
+}) {
   const [displayLive, showLiveGame] = useState(false)
   const [displayClash, setClash] = useState(false)
 
@@ -74,6 +83,9 @@ export async function getServerSideProps(ctx) {
     }
   }
 
+  // Get 10 latest matches
+  const matches = await getSummonerMatches(region, req.accountId)
+
   // Getting rank of selected summoner
   const rank = await getSummonerRank(region, req.id)
 
@@ -97,6 +109,7 @@ export async function getServerSideProps(ctx) {
       champs: champs.data,
       mastery: mastery.splice(0, 3),
       clash: clash,
+      matches: matches,
     },
   }
 }
