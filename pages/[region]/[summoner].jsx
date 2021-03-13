@@ -85,6 +85,7 @@ export async function getServerSideProps(ctx) {
 
   // Getting summoner from Riot
   const req = await findSummoner(region, summoner)
+  req.region = region
 
   // Returns if summoner not found
   if (req.status) {
